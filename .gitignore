@@ -8,10 +8,9 @@ DerivedData/
 xcuserdata/
 *.xcuserstate
 
-# SwiftPM
+# Swift Package Manager
 .swiftpm/
 Package.resolved
 
-# Secrets
-*.xcconfig
-*.plist
+# Config & Secrets
+ReadPop/Config/Secrets.xcconfig

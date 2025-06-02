@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BASE_URL</key>
+	<string>https://$(BASE_URL)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.afnan.readpop</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>NYT_API_KEY</key>
+	<string>$(NYT_API_KEY)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BebasNeue-Regular.ttf</string>
+		<string>Inter-VariableFont_opsz,wght.ttf</string>
+		<string>Oswald-Bold.ttf</string>
+		<string>Oswald-VariableFont_wght.ttf</string>
+		<string>Roboto_Condensed-Regular.ttf</string>
+		<string>Roboto-VariableFont_wdth,wght.ttf</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+</dict>
+</plist>
