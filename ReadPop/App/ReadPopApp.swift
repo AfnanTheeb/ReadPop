@@ -11,7 +11,8 @@ import SwiftUI
 struct ReadPopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let flow = AppFlow(dependencies: DependenciesContainer())
+            flow.makeRootView()
         }
     }
 }
