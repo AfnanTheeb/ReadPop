@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum ArticleListViewState {
+enum ArticleListViewState: Equatable {
     case idle
     case loading
     case success
     case empty
-    case failure(Error)
+    case failure
 }
 
 class ArticleListViewModel: ObservableObject {
@@ -24,7 +24,6 @@ class ArticleListViewModel: ObservableObject {
             fetchArticles()
         }
     }
-    
     @Published var state: ArticleListViewState = .idle
     
     private let articleService: ArticleService
@@ -49,7 +48,7 @@ class ArticleListViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     self.articles = []
-                    self.state = .failure(error)
+                    self.state = .failure
                 }
             }
         }

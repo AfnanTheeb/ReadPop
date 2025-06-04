@@ -27,6 +27,7 @@
 		C516F5452DEB4D1500C27227 /* ReadPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C516F5552DEB4D1700C27227 /* ReadPopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadPopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C516F55F2DEB4D1700C27227 /* ReadPopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadPopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C545CE332DEFEB7A00A5C278 /* ReadPop.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadPop.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +89,7 @@
 		C516F53C2DEB4D1500C27227 = {
 			isa = PBXGroup;
 			children = (
+				C545CE332DEFEB7A00A5C278 /* ReadPop.xctestplan */,
 				C516F5472DEB4D1500C27227 /* ReadPop */,
 				C516F5582DEB4D1700C27227 /* ReadPopTests */,
 				C516F5622DEB4D1700C27227 /* ReadPopUITests */,
@@ -416,7 +418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ReadPop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"\"";
 				DEVELOPMENT_TEAM = P9DPM92NTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -449,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ReadPop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"\"";
 				DEVELOPMENT_TEAM = P9DPM92NTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;

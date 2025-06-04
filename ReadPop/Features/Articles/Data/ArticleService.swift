@@ -15,9 +15,9 @@ protocol ArticleService {
 // MARK: Implementation
 final class DefaultArticleService: ArticleService {
 
-    private let networkClient: NetworkClient
+    private let networkClient: NetworkClientProtocol
 
-    init(networkClient: NetworkClient) {
+    init(networkClient: NetworkClientProtocol) {
         self.networkClient = networkClient
     }
 

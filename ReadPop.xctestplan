@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "43FF9EF0-D3CC-448A-A161-F2153E9B5D19",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ReadPop.xcodeproj",
+      "identifier" : "C516F5442DEB4D1500C27227",
+      "name" : "ReadPop"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:ReadPop.xcodeproj",
+        "identifier" : "C516F5542DEB4D1700C27227",
+        "name" : "ReadPopTests"
+      }
+    }
+  ],
+  "version" : 1
+}

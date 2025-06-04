@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct RPErrorView: View {
     let retryAction: () -> Void
     
@@ -36,9 +34,4 @@ struct RPErrorView: View {
     }
 }
 
-//#Preview {
-//    RPErrorView(retryAction: {
-//        // Sample retry logic
-//    })
-//}
 

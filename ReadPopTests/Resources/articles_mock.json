@@ -1,0 +1,263 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2025 The New York Times Company.  All Rights Reserved.",
+  "num_results": 20,
+  "results": [
+    {
+      "uri": "nyt://article/af728991-795a-55ee-b5b4-ea20bd1357cb",
+      "url": "https://www.nytimes.com/2025/05/30/us/elon-musk-drugs-children-trump.html",
+      "id": 100000010146090,
+      "asset_id": 100000010146090,
+      "source": "New York Times",
+      "published_date": "2025-05-30",
+      "updated": "2025-05-30 15:17:58",
+      "section": "U.S.",
+      "subsection": "",
+      "nytdsection": "u.s.",
+      "adx_keywords": "United States Politics and Government;Ketamine (Drug);Drug Abuse and Traffic;Psychedelic and Hallucinogenic Drugs;Ecstasy (Drug);Musk, Elon;Grimes (1988- );Zilis, Shivon;St Clair, Ashley (Author);Trump, Donald J",
+      "column": null,
+      "byline": "By Kirsten Grind and Megan Twohey",
+      "type": "Article",
+      "title": "On the Campaign Trail, Elon Musk Juggled Drugs and Family Drama",
+      "abstract": "As Mr. Musk entered President Trump’s orbit, his private life grew increasingly tumultuous and his drug use was more intense than previously known.",
+      "des_facet": [
+        "United States Politics and Government",
+        "Ketamine (Drug)",
+        "Drug Abuse and Traffic",
+        "Psychedelic and Hallucinogenic Drugs",
+        "Ecstasy (Drug)"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Musk, Elon",
+        "Grimes (1988- )",
+        "Zilis, Shivon",
+        "St Clair, Ashley (Author)",
+        "Trump, Donald J"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Elon Musk boarding Air Force One in March.",
+          "copyright": "Eric Lee/The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2025/05/26/multimedia/00musk-wflt/00musk-wflt-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/26/multimedia/00musk-wflt/00musk-wflt-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/26/multimedia/00musk-wflt/00musk-wflt-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/7551cf6a-c10a-5bee-86f0-b0b2be5177b0",
+      "url": "https://www.nytimes.com/2025/05/29/opinion/trump-vance-morality.html",
+      "id": 100000010193359,
+      "asset_id": 100000010193359,
+      "source": "New York Times",
+      "published_date": "2025-05-29",
+      "updated": "2025-05-30 11:57:07",
+      "section": "Opinion",
+      "subsection": "",
+      "nytdsection": "opinion",
+      "adx_keywords": "United States Defense and Military Forces;War and Armed Conflicts;Ethics (Personal);United States Politics and Government;Deneen, Patrick J;Vance, J D;Trump, Donald J;Republican Party",
+      "column": null,
+      "byline": "By David Brooks",
+      "type": "Article",
+      "title": "I’m Normally a Mild Guy. Here’s What’s Pushed Me Over the Edge.",
+      "abstract": "Trumpism can be seen as a giant attempt to amputate the highest aspirations of the human spirit and to reduce us to our most primitive, atavistic tendencies.",
+      "des_facet": [
+        "United States Defense and Military Forces",
+        "War and Armed Conflicts",
+        "Ethics (Personal)",
+        "United States Politics and Government"
+      ],
+      "org_facet": [
+        "Republican Party"
+      ],
+      "per_facet": [
+        "Deneen, Patrick J",
+        "Vance, J D",
+        "Trump, Donald J"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Haiyun Jiang for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2025/05/30/multimedia/29brooks1-kpjf/29brooks1-kpjf-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/30/multimedia/29brooks1-kpjf/29brooks1-kpjf-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/30/multimedia/29brooks1-kpjf/29brooks1-kpjf-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/eaef8e17-fb32-59f3-b1ab-3162c38269fc",
+      "url": "https://www.nytimes.com/2025/05/28/us/politics/elon-musk-trump-doge.html",
+      "id": 100000010194136,
+      "asset_id": 100000010194136,
+      "source": "New York Times",
+      "published_date": "2025-05-28",
+      "updated": "2025-05-29 21:24:21",
+      "section": "U.S.",
+      "subsection": "Politics",
+      "nytdsection": "u.s.",
+      "adx_keywords": "Government Employees;Layoffs and Job Reductions;United States Politics and Government;High Net Worth Individuals;Federal Budget (US);National Debt (US);Musk, Elon;Trump, Donald J;Government Efficiency Department (US);Space Exploration Technologies Corp;Tesla Motors Inc;X (Formerly Twitter);X.ai Inc",
+      "column": null,
+      "byline": "By Tyler Pager, Maggie Haberman, Theodore Schleifer, Jonathan Swan and Ryan Mac",
+      "type": "Article",
+      "title": "A Disillusioned Musk, Distanced From Trump, Says He’s Exiting Washington",
+      "abstract": "The billionaire has made clear he is frustrated with the obstacles he encountered as he tried to upend the federal bureaucracy.",
+      "des_facet": [
+        "Government Employees",
+        "Layoffs and Job Reductions",
+        "United States Politics and Government",
+        "High Net Worth Individuals",
+        "Federal Budget (US)",
+        "National Debt (US)"
+      ],
+      "org_facet": [
+        "Government Efficiency Department (US)",
+        "Space Exploration Technologies Corp",
+        "Tesla Motors Inc",
+        "X (Formerly Twitter)",
+        "X.ai Inc"
+      ],
+      "per_facet": [
+        "Musk, Elon",
+        "Trump, Donald J"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Elon Musk during a cabinet meeting at the White House last month.",
+          "copyright": "Eric Lee/The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2025/05/28/multimedia/28DC-MUSK1-vptk/28DC-MUSK1-vptk-thumbStandard-v2.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/28/multimedia/28DC-MUSK1-vptk/28DC-MUSK1-vptk-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/28/multimedia/28DC-MUSK1-vptk/28DC-MUSK1-vptk-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/655eb52c-001e-551d-935e-0ece98f11d9a",
+      "url": "https://www.nytimes.com/2025/05/30/opinion/elon-musk-doge-usaid.html",
+      "id": 100000010197844,
+      "asset_id": 100000010197844,
+      "source": "New York Times",
+      "published_date": "2025-05-30",
+      "updated": "2025-05-30 13:57:30",
+      "section": "Opinion",
+      "subsection": "",
+      "nytdsection": "opinion",
+      "adx_keywords": "United States Politics and Government;Foreign Aid;Musk, Elon;Power, Samantha;Government Efficiency Department (US);United States Agency for International Development",
+      "column": null,
+      "byline": "By Michelle Goldberg",
+      "type": "Article",
+      "title": "Elon Musk’s Legacy Is Disease, Starvation and Death",
+      "abstract": "His decimation of U.S.A.I.D. has had fatal consequences.",
+      "des_facet": [
+        "United States Politics and Government",
+        "Foreign Aid"
+      ],
+      "org_facet": [
+        "Government Efficiency Department (US)",
+        "United States Agency for International Development"
+      ],
+      "per_facet": [
+        "Musk, Elon",
+        "Power, Samantha"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Andrew Harnik/Getty Images",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2025/05/31/multimedia/30goldberg-fkmt/30goldberg-fkmt-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/31/multimedia/30goldberg-fkmt/30goldberg-fkmt-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2025/05/31/multimedia/30goldberg-fkmt/30goldberg-fkmt-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    }
+  ]
+}
