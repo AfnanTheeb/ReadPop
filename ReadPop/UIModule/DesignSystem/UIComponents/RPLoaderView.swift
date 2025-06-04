@@ -19,6 +19,3 @@ struct RPLoaderView: View {
     }
 }
 
-//#Preview {
-//    RPLoaderView()
-//}

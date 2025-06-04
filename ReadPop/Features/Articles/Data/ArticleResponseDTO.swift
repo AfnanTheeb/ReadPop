@@ -31,44 +31,6 @@ struct ArticleDTO: Decodable {
         case publishedDate = "published_date"
     }
     
-//    func toDomain() -> Article {
-//        Article(
-//            id: String(id),
-//            title: title,
-//            abstract: abstract,
-//            publishedDate: formatDate(publishedDate),
-//            updated: updated,
-//            byline: byline ?? "",
-//            url: url,
-//            section: section,
-//            subsection: subsection ?? "",
-//            nytdsection: nytdsection ?? "",
-//            imageUrl: media?.first?.mediaMetadata?.last?.url
-//        )
-//    }
-    
-    private func formatDate(_ dateString: String?) -> String {
-        guard let dateString = dateString else { return "" }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        guard let date = formatter.date(from: dateString) else { return "" }
-        
-        let calendar = Calendar.current
-        let now = Date()
-        let components = calendar.dateComponents([.day, .weekOfYear, .month], from: date, to: now)
-        
-        if let month = components.month, month > 0 {
-            return "\(month)mo"
-        } else if let week = components.weekOfYear, week > 0 {
-            return "\(week)w"
-        } else if let day = components.day {
-            return "\(day)d"
-        } else {
-            return "1d"
-        }
-    }
 }
 
 struct MediaDTO: Decodable {
@@ -89,7 +51,7 @@ extension ArticleDTO {
             id: String(id),
             title: title,
             abstract: abstract,
-            publishedDate: publishedDate,
+            publishedDate: publishedDate.toRelativeDateString(),
             updated: updated,
             byline: byline ?? "",
             url: url,

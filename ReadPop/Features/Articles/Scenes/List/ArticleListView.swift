@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ArticleListView: View {
     @ObservedObject var viewModel: ArticleListViewModel
     
@@ -18,7 +16,6 @@ struct ArticleListView: View {
             PeriodSelectorView(selectedPeriod: $viewModel.selectedPeriod)
             
             contentView
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
     
