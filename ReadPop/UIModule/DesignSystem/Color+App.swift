@@ -15,6 +15,8 @@ extension Color {
     static let rpPrimary = Color("primary")
     static let rpPrimaryLight = Color("primaryLight")
     
+    static let rpAccentOrange = Color("accentOrange")
+    
     static let rpBackground = Color("background")
     static let rpSurface = Color("surface")
     

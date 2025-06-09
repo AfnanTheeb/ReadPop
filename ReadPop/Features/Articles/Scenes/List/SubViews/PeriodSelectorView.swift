@@ -9,34 +9,35 @@ import SwiftUI
 
 struct PeriodSelectorView: View {
     @Binding var selectedPeriod: ArticlePeriod
-
+    
     var body: some View {
         HStack(spacing: 0) {
             ForEach(ArticlePeriod.allCases) { period in
                 periodButton(period: period)
             }
         }
-        .background(Color.rpSurface)
-        .clipShape(RoundedRectangle(cornerRadius: 0))
+        .background(Color.rpPrimary)
+        .clipShape(RoundedCorners(radius: 10, corners: [.topLeft, .topRight]))
     }
 
     private func periodButton(period: ArticlePeriod) -> some View {
-        Button(action: {
-            withAnimation {
+        let isSelected = selectedPeriod == period
+        
+        return Button(action: {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 selectedPeriod = period
             }
         }) {
             Text(period.title)
-                .font(.custom("Oswald-Bold", size: 18))
+                .font(.custom("Oswald-Bold", size: isSelected ? 20 : 18))
+                .foregroundColor(isSelected ? .white : .white.opacity(0.6))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
-                .foregroundColor(selectedPeriod == period ? .white : .primary)
-                .background( Color.rpPrimary )
+                .background(
+                    isSelected
+                    ? Color.rpAccentOrange.opacity(0.8)
+                    : Color.rpPrimary
+                )
         }
     }
 }
-
-
-//#Preview {
-//    PeriodSelectorView()
-//}

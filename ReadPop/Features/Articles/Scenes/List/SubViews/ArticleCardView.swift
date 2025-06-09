@@ -78,7 +78,6 @@ struct ArticleCardView: View {
             .foregroundColor(.secondary)
         }
         .padding(size.cardPadding)
-        .background(Color.rpSurface)
         .cornerRadius(16)
     }
     

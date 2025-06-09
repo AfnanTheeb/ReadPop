@@ -18,14 +18,24 @@ enum ArticleListViewState: Equatable {
 class ArticleListViewModel: ObservableObject {
     
     @Published var articles: [Article] = []
+    @Published var state: ArticleListViewState = .idle
     @Published var selectedPeriod: ArticlePeriod = .default {
         didSet {
             guard oldValue != selectedPeriod else { return }
             fetchArticles()
         }
     }
-    @Published var state: ArticleListViewState = .idle
+    @Published var selectedSection: String? = nil {
+        didSet {
+            applySectionFilter()
+        }
+    }
     
+    var availableSections: [String] {
+        Set(allArticles.map { $0.section.lowercased() }).sorted()
+    }
+    
+    private var allArticles: [Article] = []
     private let articleService: ArticleService
     let onSelect: (Article) -> Void
     
@@ -37,13 +47,13 @@ class ArticleListViewModel: ObservableObject {
     
     func fetchArticles() {
         state = .loading
-        
         Task {
             do {
                 let result = try await articleService.fetchTopArticles(period: selectedPeriod)
                 await MainActor.run {
-                    self.articles = result
-                    self.state = result.isEmpty ? .empty : .success
+                    self.allArticles = result
+                    selectedSection = nil
+                    applySectionFilter()
                 }
             } catch {
                 await MainActor.run {
@@ -52,6 +62,19 @@ class ArticleListViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func applySectionFilter() {
+        if let selected = selectedSection {
+            let filtered = allArticles.filter {
+                return $0.section.lowercased() == selected.lowercased()
+            }
+            articles = filtered
+        } else {
+            articles = allArticles
+        }
+        
+        state = articles.isEmpty ? .empty : .success
     }
     
     func selectArticle(_ article: Article) {
