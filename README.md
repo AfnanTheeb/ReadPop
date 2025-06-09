@@ -136,11 +136,13 @@ Each component is written in SwiftUI with responsiveness and theming in mind.
 ## Updated Screenshots
 
 <p align="center">
-  <img src="screenshot_v2_list.png" alt="Updated List View" width="200"/>
+  <img src="updateList.png" alt="Updated List View" width="200"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="screenshot_v2_detail.png" alt="Updated Detail View" width="200"/>
+  <img src="updateDetails.png" alt="Updated Detail View" width="200"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="screenshot_v2_filter.png" alt="Section Filter" width="200"/>
+  <img src="section.png" alt="Section Filter" width="200"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="updateEmptyView.png" alt="Section Filter" width="200"/>
 </p>
 
 
