@@ -14,9 +14,10 @@ struct ArticleListView: View {
         VStack(spacing: 0) {
             RPHeaderView(title: "MOST POPULAR")
             PeriodSelectorView(selectedPeriod: $viewModel.selectedPeriod)
-            
+
             contentView
         }
+        .applyAppBackground()
     }
     
     @ViewBuilder
@@ -35,6 +36,7 @@ struct ArticleListView: View {
             emptyView
             
         case .success:
+            SectionFilterView(viewModel: viewModel)
             ArticleCardsLayoutView(
                 articles: viewModel.articles,
                 onArticleTap: viewModel.selectArticle
@@ -43,18 +45,21 @@ struct ArticleListView: View {
     }
     
     private var emptyView: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 12) {
             Spacer()
+            
+            Image(systemName: "doc.text.magnifyingglass")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+                .foregroundColor(.rpPrimaryLight)
+            
             Text("No articles yet")
-                .foregroundColor(.gray)
-            Button("Reload") {
-                viewModel.fetchArticles()
-            }
-            .padding(.vertical, 6)
-            .padding(.horizontal, 14)
-            .background(Color.rpPrimary.opacity(0.1))
-            .cornerRadius(8)
+                .font(FontTheme.SummaryText.regular(size: 16))
+                .foregroundColor(.rpTextSecondary)
+            
             Spacer()
         }
+        .frame(maxWidth: .infinity)
     }
 }

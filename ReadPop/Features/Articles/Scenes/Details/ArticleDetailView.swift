@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ArticleDetailView: View {
     @ObservedObject var viewModel: ArticleDetailViewModel
-
+    
     var body: some View {
         VStack(spacing: 0) {
             // Header
             RPHeaderView(title: "Article Detail", style: .regular, onBack: viewModel.goBack)
-
+            
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     ArticleImageView(imageUrl: viewModel.imageUrl)
@@ -24,16 +24,17 @@ struct ArticleDetailView: View {
                 .padding()
             }
         }
+        .applyAppBackground()
         .navigationBarHidden(true)
     }
-
+    
     private var articleInfoSection: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(viewModel.title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
-
+            
             HStack {
                 Text(viewModel.byline)
                 Spacer()
@@ -41,10 +42,10 @@ struct ArticleDetailView: View {
             }
             .font(.subheadline)
             .foregroundColor(.secondary)
-
+            
             Text(viewModel.abstract)
                 .font(.body)
-
+            
             if !viewModel.section.isEmpty {
                 Text("Section: \(viewModel.section)")
                     .font(.caption)
@@ -52,7 +53,7 @@ struct ArticleDetailView: View {
             }
         }
     }
-
+    
     private var readMoreButton: some View {
         Button(action: viewModel.openInBrowser) {
             Text("Read Full Article")
