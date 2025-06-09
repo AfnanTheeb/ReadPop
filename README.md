@@ -46,7 +46,15 @@ User can switch between most viewed articles in:
 - Last 7 days
 - Last 30 days
 
-  
+
+### Section Filter (Dynamic)
+
+Users can now filter articles by section, based on the actual article data fetched from the API.
+
+- Sections like **Business**, **Technology**, etc., are shown as selectable filters.  
+- Automatically resets to **All** when the selected period changes.  
+- Fully integrated into the `ArticleListViewModel`.
+
 
 ### Error Handling & Loading
 
@@ -54,6 +62,14 @@ User can switch between most viewed articles in:
 
 - Error view with retry capability
 
+### Global Background Styling
+
+- Introduced a consistent app-wide gradient background using `.applyAppBackground()` modifier  
+- Applied across all major views including the article list and detail views  
+
+### UI Polish
+
+- Unified font styles and colors across the app using `FontTheme` and custom color assets  
   
 
 ---
@@ -78,7 +94,58 @@ User can switch between most viewed articles in:
 
 ---
 
-  
+## Design System (Colors & Fonts)
+
+The app uses a custom design system to ensure consistent styling:
+
+### Fonts
+- **Bebas Neue**: Section headers (e.g. "MOST POPULAR")
+- **Oswald Bold**: Article titles
+- **Inter**: Body text and summaries
+- **Roboto Condensed**: Metadata (dates, bylines)
+
+### 🎨 Colors
+- `rpPrimary`: Main brand color
+- `rpPrimaryLight`: Light variation for secondary emphasis
+- `rpBackground`: System-wide background
+- `rpGradientStart` / `rpGradientAltStart`: Used in global gradient background
+- `rpTextPrimary` / `rpTextSecondary`: Text colors
+
+All fonts and colors are defined in the `FontTheme.swift` and `Color+Extensions.swift`.
+
+---
+
+## Reusable UI Components
+
+The app defines a clean set of reusable UI components used across different screens:
+
+| Component          | Description                                       |
+|-------------------|---------------------------------------------------|
+| `RPHeaderView`     | Custom header with optional back button and style |
+| `PeriodSelectorView` | Horizontal selector for filtering article periods |
+| `SectionFilterView` | Scrollable horizontal list for filtering by section |
+| `ArticleCardView`   | Large clickable card showing article info        |
+| `ArticleImageView`  | Reusable image loader with placeholder            |
+| `RPLoaderView`      | Custom loading spinner                           |
+| `RPErrorView`       | Full-screen error with retry option              |
+
+Each component is written in SwiftUI with responsiveness and theming in mind.
+
+---
+
+## Updated Screenshots
+
+<p align="center">
+  <img src="screenshot_v2_list.png" alt="Updated List View" width="200"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshot_v2_detail.png" alt="Updated Detail View" width="200"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshot_v2_filter.png" alt="Section Filter" width="200"/>
+</p>
+
+
+
+---  
 
 ## Screenshots
 
