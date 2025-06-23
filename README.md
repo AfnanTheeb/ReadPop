@@ -258,7 +258,6 @@ Cmd + U in Xcode
 
   
 
-- ❌  WebViews are not used in this project
 
 - ✅  All article content is rendered using native SwiftUI views
 
