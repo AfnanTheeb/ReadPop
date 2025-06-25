@@ -41,6 +41,7 @@ final class ArticleListViewModelTests: XCTestCase {
 
         viewModel.$state
             .dropFirst()
+            .first(where: { $0 == .success })
             .sink { state in
                 if state == .success {
                     expectation.fulfill()
@@ -63,6 +64,7 @@ final class ArticleListViewModelTests: XCTestCase {
 
         viewModel.$state
             .dropFirst()
+            .first(where: { $0 == .empty })
             .sink { state in
                 if state == .empty {
                     expectation.fulfill()
@@ -85,6 +87,7 @@ final class ArticleListViewModelTests: XCTestCase {
 
         viewModel.$state
             .dropFirst()
+            .first(where: { $0 == .failure })
             .sink { state in
                 if state == .failure {
                     expectation.fulfill()
