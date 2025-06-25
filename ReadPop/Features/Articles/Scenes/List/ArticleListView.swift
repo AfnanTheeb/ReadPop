@@ -37,9 +37,9 @@ struct ArticleListView: View {
             
         case .success:
             SectionFilterView(viewModel: viewModel)
-            ArticleCardsLayoutView(
-                articles: viewModel.articles,
-                onArticleTap: viewModel.selectArticle
+            ArticleRowsView(
+                rows: viewModel.buildArticleRows(),
+                onTap: viewModel.selectArticle
             )
         }
     }

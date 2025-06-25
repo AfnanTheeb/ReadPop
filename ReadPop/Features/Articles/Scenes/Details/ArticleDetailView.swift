@@ -17,7 +17,7 @@ struct ArticleDetailView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    ArticleImageView(imageUrl: viewModel.imageUrl)
+                    ArticleImageView(imageUrl: viewModel.article.imageUrl)
                     articleInfoSection
                     readMoreButton
                 }
@@ -30,24 +30,24 @@ struct ArticleDetailView: View {
     
     private var articleInfoSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(viewModel.title)
+            Text(viewModel.article.title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
             
             HStack {
-                Text(viewModel.byline)
+                Text(viewModel.article.byline)
                 Spacer()
-                Text(viewModel.publishedDate)
+                Text(viewModel.article.publishedDate)
             }
             .font(.subheadline)
             .foregroundColor(.secondary)
             
-            Text(viewModel.abstract)
+            Text(viewModel.article.abstract)
                 .font(.body)
             
-            if !viewModel.section.isEmpty {
-                Text("Section: \(viewModel.section)")
+            if !viewModel.article.section.isEmpty {
+                Text("Section: \(viewModel.article.section)")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -55,7 +55,11 @@ struct ArticleDetailView: View {
     }
     
     private var readMoreButton: some View {
-        Button(action: viewModel.openInBrowser) {
+        Button {
+            if let url = viewModel.articleURL() {
+                UIApplication.shared.open(url)
+            }
+        } label: {
             Text("Read Full Article")
                 .font(.headline)
                 .frame(maxWidth: .infinity)
@@ -65,4 +69,5 @@ struct ArticleDetailView: View {
                 .cornerRadius(12)
         }
     }
+
 }

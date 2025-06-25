@@ -80,4 +80,28 @@ class ArticleListViewModel: ObservableObject {
     func selectArticle(_ article: Article) {
         onSelect(article)
     }
+    
+    func buildArticleRows() -> [ArticleRowType] {
+        var result: [ArticleRowType] = []
+        var index = 0
+
+        while index < articles.count {
+            let isLargeCard = index % 5 == 0
+            let currentArticle = articles[index]
+
+            if isLargeCard {
+                result.append(.single(currentArticle))
+                index += 1
+            } else if index + 1 < articles.count {
+                let nextArticle = articles[index + 1]
+                result.append(.pair(currentArticle, nextArticle))
+                index += 2
+            } else {
+                result.append(.single(currentArticle))
+                index += 1
+            }
+        }
+
+        return result
+    }
 }
