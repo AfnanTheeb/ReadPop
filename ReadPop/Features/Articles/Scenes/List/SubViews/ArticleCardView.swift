@@ -24,10 +24,6 @@ enum ArticleCardSize {
         case .small: return .subheadline
         }
     }
-    
-    var cardPadding: CGFloat {
-        return 6
-    }
 }
 
 struct ArticleCardView: View {
@@ -35,55 +31,77 @@ struct ArticleCardView: View {
     let size: ArticleCardSize
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Image
-            if let imageUrl = article.imageUrl, let url = URL(string: imageUrl) {
-                AsyncImage(url: url) { phase in
-                    if let image = phase.image {
-                        image
-                            .resizable()
-                            .frame(height: size.imageHeight)
-                            .cornerRadius(12)
-                            .clipped()
-                            .aspectRatio(contentMode: .fit)
-                    } else {
-                        placeholder
-                    }
-                }
-                .frame(height: size.imageHeight)
-            } else {
-                placeholder
-            }
-
-
-            // Title
-            Text(article.title)
-                .font(size.titleFont)
-                .foregroundColor(.primary)
-                .lineLimit(2)
-                .truncationMode(.tail)
+        VStack(alignment: .leading, spacing: 12) {
+            articleImage
             
-            // Byline + Date
-            HStack {
-                Text(article.byline)
-                    .lineLimit(1)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(article.title)
+                    .font(size.titleFont)
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
                     .truncationMode(.tail)
                 
-                Spacer()
-                
-                Text(article.publishedDate)
-                    .lineLimit(1)
+                HStack {
+                    Text(article.byline)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                    
+                    Spacer()
+                    
+                    Text(article.publishedDate)
+                        .lineLimit(1)
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
             }
-            .font(.caption)
-            .foregroundColor(.secondary)
+            Spacer()
         }
-        .padding(size.cardPadding)
-        .cornerRadius(16)
+    }
+    
+    @ViewBuilder
+    private var articleImage: some View {
+        GeometryReader { geo in
+            let width = geo.size.width
+            let height = size.imageHeight
+
+            AsyncImage(url: URL(string: article.imageUrl ?? "")) { phase in
+                imageView(for: phase, width: width, height: height)
+            }
+        }
+        .frame(height: size.imageHeight)
+    }
+
+    @ViewBuilder
+    private func imageView(for phase: AsyncImagePhase, width: CGFloat, height: CGFloat) -> some View {
+        switch phase {
+        case .empty:
+            placeholder
+                .frame(width: width, height: height)
+
+        case .success(let image):
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: width, height: height)
+                .clipped()
+                .cornerRadius(12)
+                .transition(.opacity.combined(with: .scale))
+                .animation(.easeInOut(duration: 0.3), value: true)
+            
+        // Handles .failure and any future unknown cases
+        @unknown default:
+            placeholder
+                .frame(width: width, height: height)
+        }
     }
     
     private var placeholder: some View {
         RoundedRectangle(cornerRadius: 12)
             .fill(Color.gray.opacity(0.3))
+            .overlay(
+                Image(systemName: "photo")
+                    .foregroundColor(.white.opacity(0.6))
+            )
             .frame(height: size.imageHeight)
     }
 }

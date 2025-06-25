@@ -16,13 +16,13 @@ final class ArticleDetailViewModelTests: XCTestCase {
         let viewModel = ArticleDetailViewModel(article: article)
 
         // Assert
-        XCTAssertEqual(viewModel.title, article.title)
-        XCTAssertEqual(viewModel.abstract, article.abstract)
-        XCTAssertEqual(viewModel.byline, article.byline)
-        XCTAssertEqual(viewModel.publishedDate, article.publishedDate)
-        XCTAssertEqual(viewModel.url, article.url)
-        XCTAssertEqual(viewModel.imageUrl, article.imageUrl)
-        XCTAssertEqual(viewModel.section, article.section)
+        XCTAssertEqual(viewModel.article.title, article.title)
+        XCTAssertEqual(viewModel.article.abstract, article.abstract)
+        XCTAssertEqual(viewModel.article.byline, article.byline)
+        XCTAssertEqual(viewModel.article.publishedDate, article.publishedDate)
+        XCTAssertEqual(viewModel.article.url, article.url)
+        XCTAssertEqual(viewModel.article.imageUrl, article.imageUrl)
+        XCTAssertEqual(viewModel.article.section, article.section)
     }
     
     func test_goBackClosureShouldBeCalled() {
