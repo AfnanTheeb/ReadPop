@@ -1,0 +1,12 @@
+//
+//  Debug.xcconfig
+//  ReadPop
+//
+//  Created by Afnan Alotaibi on 04/12/1446 AH.
+//
+
+// Staging.xcconfig
+#include "Base.xcconfig"
+
+APP_ENVIRONMENT = Staging
+NYT_API_KEY = your_staging_key_here
