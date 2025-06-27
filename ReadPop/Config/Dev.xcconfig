@@ -1,0 +1,13 @@
+//
+//  Dev.xcconfig
+//  ReadPop
+//
+//  Created by Afnan Alotaibi on 01/01/1447 AH.
+//
+
+
+// Dev.xcconfig
+#include "Base.xcconfig"
+
+APP_ENVIRONMENT = Dev
+NYT_API_KEY = KRIUoT7EdpbEQe0UOvfPTw9FcvraCRA2

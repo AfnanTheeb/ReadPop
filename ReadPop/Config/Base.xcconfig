@@ -8,5 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BASE_URL = api.nytimes.com
-NYT_API_KEY = write your key here
+BASE_URL = api.nytimes.com/svc
+NYT_API_KEY = KRIUoT7EdpbEQe0UOvfPTw9FcvraCRA2

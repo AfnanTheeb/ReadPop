@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import ReadPopApp
+import ReadPopDependencies
+
 
 @main
 struct ReadPopApp: App {
