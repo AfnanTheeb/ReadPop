@@ -8,9 +8,11 @@
 import SwiftUI
 
 public struct RPErrorView: View {
+    let message: String
     let retryAction: () -> Void
     
-    public init(retryAction: @escaping () -> Void) {
+    public init(message: String = "Failed to Load", retryAction: @escaping () -> Void) {
+        self.message = message
         self.retryAction = retryAction
     }
     
@@ -18,7 +20,7 @@ public struct RPErrorView: View {
         VStack(spacing: 12) {
             Spacer()
             
-            Text("Failed to Load")
+            Text(message)
                 .font(FontTheme.SummaryText.regular(size: 24))
                 .foregroundStyle(Color.rpPrimary)
                 .multilineTextAlignment(.center)
@@ -32,10 +34,9 @@ public struct RPErrorView: View {
                     .background(Color.rpTextSecondary)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+            
             Spacer()
         }
         .padding()
     }
 }
-
-

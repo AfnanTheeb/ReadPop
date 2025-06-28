@@ -29,17 +29,24 @@ struct ArticleListView: View {
             
         case .loading:
             RPLoaderView()
-            
-        case .failure:
-            RPErrorView(retryAction: viewModel.fetchArticles)
+
+        case .failure(let message):
+            RPErrorView(message: message, retryAction: viewModel.fetchArticles)
             
         case .empty:
             emptyView
             
-        case .success:
-            SectionFilterView(viewModel: viewModel)
+        case .success( _, let selectedSection):
+            SectionFilterView(
+                availableSections: viewModel.state.availableSections,
+                selectedSection: selectedSection,
+                onSelect: { section in
+                    viewModel.selectSection(section)
+                }
+            )
+            
             ArticleRowsView(
-                rows: viewModel.buildArticleRows(),
+                rows: viewModel.state.rows,
                 onTap: viewModel.selectArticle
             )
         }

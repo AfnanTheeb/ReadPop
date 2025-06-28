@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Article: Identifiable, Hashable,  @unchecked Sendable {
+public struct Article: Identifiable, Hashable {
     public let id: String
     let title: String
     let abstract: String
@@ -21,20 +21,14 @@ public struct Article: Identifiable, Hashable,  @unchecked Sendable {
     let imageUrl: String?
 }
 
-public enum ArticlePeriod: Int, CaseIterable, Identifiable {
-    case oneDay = 1
-    case sevenDays = 7
-    case thirtyDays = 30
-
-    public var id: Int { rawValue }
+public enum ArticlePeriod: Int, CaseIterable {
+    case oneDay = 1, sevenDays = 7, thirtyDays = 30
 
     var title: String {
         switch self {
-        case .oneDay: return "TODAY'S"
-        case .sevenDays: return "THIS WEEK"
-        case .thirtyDays: return "THIS MONTH"
+        case .oneDay: "TODAY'S"
+        case .sevenDays: "THIS WEEK"
+        case .thirtyDays: "THIS MONTH"
         }
     }
-    
-    static var `default`: ArticlePeriod { .sevenDays }
 }

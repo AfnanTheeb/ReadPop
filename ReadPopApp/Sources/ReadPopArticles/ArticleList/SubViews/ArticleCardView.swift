@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ReadPopUI
 
 enum ArticleCardSize {
     case small
@@ -20,8 +21,8 @@ enum ArticleCardSize {
     
     var titleFont: Font {
         switch self {
-        case .large: return .headline
-        case .small: return .subheadline
+        case .large: return FontTheme.SummaryText.regular(size: 18).bold()
+        case .small: return FontTheme.SummaryText.regular(size: 16).bold()
         }
     }
 }
@@ -51,7 +52,7 @@ struct ArticleCardView: View {
                     Text(article.publishedDate)
                         .lineLimit(1)
                 }
-                .font(.caption)
+                .font(.caption).bold()
                 .foregroundColor(.secondary)
             }
             Spacer()
@@ -61,47 +62,13 @@ struct ArticleCardView: View {
     @ViewBuilder
     private var articleImage: some View {
         GeometryReader { geo in
-            let width = geo.size.width
-            let height = size.imageHeight
-
-            AsyncImage(url: URL(string: article.imageUrl ?? "")) { phase in
-                imageView(for: phase, width: width, height: height)
-            }
+            RPAsyncImageView(
+                imageUrl: article.imageUrl,
+                width: geo.size.width,
+                height: size.imageHeight,
+                cornerRadius: 12
+            )
         }
         .frame(height: size.imageHeight)
-    }
-
-    @ViewBuilder
-    private func imageView(for phase: AsyncImagePhase, width: CGFloat, height: CGFloat) -> some View {
-        switch phase {
-        case .empty:
-            placeholder
-                .frame(width: width, height: height)
-
-        case .success(let image):
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(width: width, height: height)
-                .clipped()
-                .cornerRadius(12)
-                .transition(.opacity.combined(with: .scale))
-                .animation(.easeInOut(duration: 0.3), value: true)
-            
-        // Handles .failure and any future unknown cases
-        default:
-            placeholder
-                .frame(width: width, height: height)
-        }
-    }
-    
-    private var placeholder: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .fill(Color.gray.opacity(0.3))
-            .overlay(
-                Image(systemName: "photo")
-                    .foregroundColor(.white.opacity(0.6))
-            )
-            .frame(height: size.imageHeight)
     }
 }
