@@ -13,7 +13,7 @@ struct PeriodSelectorView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(ArticlePeriod.allCases) { period in
+            ForEach(ArticlePeriod.allCases, id: \.self) { period in
                 periodButton(period: period)
             }
         }

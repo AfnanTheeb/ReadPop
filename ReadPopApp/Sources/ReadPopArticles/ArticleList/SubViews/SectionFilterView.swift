@@ -9,7 +9,9 @@ import SwiftUI
 import ReadPopUI
 
 struct SectionFilterView: View {
-    @ObservedObject var viewModel: ArticleListViewModel
+    let availableSections: [String]
+    var selectedSection: String
+    let onSelect: (String) -> Void
     private let scrollToTopID = "SectionScrollStart"
     
     var body: some View {
@@ -20,30 +22,19 @@ struct SectionFilterView: View {
                         .frame(width: 0.3, height: 1)
                         .id(scrollToTopID)
                     
-                    filterButton(
-                        label: "All",
-                        isSelected: viewModel.selectedSection == nil
-                    ) {
-                        if viewModel.selectedSection != nil {
-                            viewModel.selectedSection = nil
-                        }
-                    }
-                    
-                    ForEach(viewModel.availableSections, id: \.self) { section in
+                    ForEach(availableSections, id: \.self) { section in
                         filterButton(
                             label: section.capitalized,
-                            isSelected: viewModel.selectedSection == section
+                            isSelected: selectedSection == section
                         ) {
-                            if viewModel.selectedSection != section {
-                                viewModel.selectedSection = section
-                            }
+                            onSelect(section)
                         }
                     }
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 6)
             }
-            .onChange(of: viewModel.selectedPeriod) { _ in
+            .onChange(of: availableSections ) { _ in
                 withAnimation {
                     proxy.scrollTo(scrollToTopID, anchor: .leading)
                 }

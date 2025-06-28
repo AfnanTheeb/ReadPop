@@ -18,7 +18,7 @@ struct ArticleDetailView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    ArticleImageView(imageUrl: viewModel.article.imageUrl)
+                    RPAsyncImageView(imageUrl: viewModel.article.imageUrl, height: 240)
                     articleInfoSection
                     readMoreButton
                 }
@@ -49,7 +49,7 @@ struct ArticleDetailView: View {
             
             if !viewModel.article.section.isEmpty {
                 Text("Section: \(viewModel.article.section)")
-                    .font(.caption)
+                    .font(.caption).bold()
                     .foregroundColor(.secondary)
             }
         }

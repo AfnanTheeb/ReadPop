@@ -11,85 +11,40 @@ import ReadPopCore
 enum ArticleListViewState: Equatable {
     case idle
     case loading
-    case success
+    case success(articles: [Article], selectedSection: String)
     case empty
-    case failure
-}
-
-class ArticleListViewModel: ObservableObject {
-    
-    @Published var articles: [Article] = []
-    @Published var state: ArticleListViewState = .idle
-    @Published var selectedPeriod: ArticlePeriod = .default {
-        didSet {
-            guard oldValue != selectedPeriod else { return }
-            fetchArticles()
-        }
-    }
-    @Published var selectedSection: String? = nil {
-        didSet {
-            applySectionFilter()
-        }
-    }
+    case failure(String)
     
     var availableSections: [String] {
-        Set(allArticles.map { $0.section.lowercased() }).sorted()
-    }
-    
-    private var allArticles: [Article] = []
-    private let articleService: ArticleServiceProtocol
-    let onSelect: (Article) -> Void
-    
-    init(articleService: ArticleServiceProtocol, onSelect: @escaping (Article) -> Void) {
-        self.articleService = articleService
-        self.onSelect = onSelect
-        fetchArticles()
-    }
-    
-     func fetchArticles() {
-        state = .loading
-        Task {
-            do {
-                let result = try await articleService.fetchArticles(period: selectedPeriod.id)
-                await MainActor.run {
-                    self.allArticles = result
-                    selectedSection = nil
-                    applySectionFilter()
-                }
-            } catch {
-                await MainActor.run {
-                    self.articles = []
-                    self.state = .failure
-                }
-            }
+        switch self {
+        case .success(let articles, _):
+            var sections = Set(articles.map { $0.section })
+            sections.insert("All")
+            return Array(sections).sorted()
+        default:
+            return ["All"]
         }
     }
     
-    private func applySectionFilter() {
-        if let selected = selectedSection {
-            let filtered = allArticles.filter {
-                return $0.section.lowercased() == selected.lowercased()
-            }
-            articles = filtered
-        } else {
-            articles = allArticles
+    var filteredArticles: [Article] {
+        switch self {
+        case .success(let articles, let selectedSection):
+            if selectedSection == "All" { return articles }
+            return articles.filter { $0.section == selectedSection }
+        default:
+            return []
         }
-        
-        state = articles.isEmpty ? .empty : .success
     }
     
-    func selectArticle(_ article: Article) {
-        onSelect(article)
-    }
-    
-    func buildArticleRows() -> [ArticleRowType] {
+    var rows: [ArticleRowType] {
         var result: [ArticleRowType] = []
         var index = 0
-
+        let articles = filteredArticles
+        
         while index < articles.count {
             let isLargeCard = index % 5 == 0
             let currentArticle = articles[index]
-
+            
             if isLargeCard {
                 result.append(.single(currentArticle))
                 index += 1
@@ -102,7 +57,59 @@ class ArticleListViewModel: ObservableObject {
                 index += 1
             }
         }
-
         return result
+    }
+}
+
+class ArticleListViewModel: ObservableObject {
+    
+    @Published var state: ArticleListViewState = .idle
+    @Published var selectedPeriod: ArticlePeriod = .sevenDays {
+        didSet {
+            guard oldValue != selectedPeriod else { return }
+            fetchArticles()
+        }
+    }
+    
+    private let articleService: ArticleServiceProtocol
+    let onSelect: (Article) -> Void
+    
+    init(articleService: ArticleServiceProtocol, onSelect: @escaping (Article) -> Void) {
+        self.articleService = articleService
+        self.onSelect = onSelect
+        fetchArticles()
+    }
+    
+    func fetchArticles() {
+        state = .loading
+        Task {
+            do {
+                let result = try await articleService.fetchArticles(period: selectedPeriod.rawValue)
+                await MainActor.run {
+                    if result.isEmpty {
+                        state = .empty
+                    } else {
+                        state = .success(articles: result, selectedSection: "All")
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    state = .failure(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func selectSection(_ section: String) {
+        switch state {
+        case .success(let articles, _):
+            state = .success(articles: articles, selectedSection: section)
+        default:
+            break
+        }
+    }
+    
+    func selectArticle(_ article: Article) {
+        onSelect(article)
     }
 }
