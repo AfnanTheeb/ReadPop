@@ -10,4 +10,4 @@
 #include "Base.xcconfig"
 
 APP_ENVIRONMENT = Dev
-NYT_API_KEY = KRIUoT7EdpbEQe0UOvfPTw9FcvraCRA2
+NYT_API_KEY = 

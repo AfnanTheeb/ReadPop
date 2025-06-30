@@ -82,19 +82,20 @@ class ArticleListViewModel: ObservableObject {
     
     func fetchArticles() {
         state = .loading
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                let result = try await articleService.fetchArticles(period: selectedPeriod.rawValue)
+                let result = try await self.articleService.fetchArticles(period: self.selectedPeriod.rawValue)
                 await MainActor.run {
                     if result.isEmpty {
-                        state = .empty
+                        self.state = .empty
                     } else {
-                        state = .success(articles: result, selectedSection: "All")
+                        self.state = .success(articles: result, selectedSection: "All")
                     }
                 }
             } catch {
                 await MainActor.run {
-                    state = .failure(error.localizedDescription)
+                    self.state = .failure(error.localizedDescription)
                 }
             }
         }
