@@ -9,4 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 BASE_URL = api.nytimes.com/svc
-NYT_API_KEY = KRIUoT7EdpbEQe0UOvfPTw9FcvraCRA2
+NYT_API_KEY = 

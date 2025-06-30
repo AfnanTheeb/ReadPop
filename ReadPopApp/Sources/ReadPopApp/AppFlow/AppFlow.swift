@@ -30,16 +30,16 @@ public final class AppFlow: ObservableObject {
         case .articles:
             ArticleListFlow(
                 service: dependencies.articleService,
-                onSelect: { article in
-                    self.path.append(.articleDetail(article))
+                onSelect: { [weak self] article in
+                    self?.path.append(.articleDetail(article))
                 }
             ).makeView()
 
         case .articleDetail(let article):
             ArticleDetailFlow(
                 article: article,
-                onBack: {
-                    self.path.removeLast()
+                onBack: { [weak self] in
+                    self?.path.removeLast()
                 }
             ).makeView()
         }
